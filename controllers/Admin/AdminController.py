@@ -13,19 +13,18 @@ class AdminController:
             data = {k: v for k, v in data.items() if v != ""}
 
         admin = auth_user.admin.serialize
-        profile_picture = auth_user.profilePicture.serialize if auth_user.profilePicture else None
 
         if data and data.get('validation'):
             return {
                 'admin': {
                     'name': admin['name']
                 },
-                'profile_picture': profile_picture
+                
             }
         else:
             return {
                 'admin': admin,
-                'profile_picture': profile_picture,
+                
                 'email': auth_user.email
             }
 

@@ -28,7 +28,6 @@ crontab.init_app(app)
 ############## Middlewares ###############
 
 app.before_request_funcs = {
-    'session_bp': [User.verify_token],
     'admin_admin_bp': [User.verify_token, User.verify_role],
     'client_client_bp': [User.verify_token, User.verify_role],
 }
