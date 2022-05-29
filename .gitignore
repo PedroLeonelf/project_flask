@@ -1,5 +1,6 @@
 *pyc
 *pyo
+_.py
 venv/
 .env
 helpers/tmpPath/fonts/
