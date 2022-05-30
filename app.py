@@ -23,7 +23,8 @@ seeder.init_app(app, db)
 ############## Scheduled jobs ###############
 
 crontab.init_app(app)
-# crontab.job(minute="0", hour="0")(JobName)
+crontab.job(minute="0", hour="0")(notificationsJob)
+crontab.job(minute="0", hour="0")(updateBillingDateJob)
 
 ############## Middlewares ###############
 

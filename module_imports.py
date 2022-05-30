@@ -28,4 +28,5 @@ from routes.client_notification_bp import client_notification_bp
 
 ############### Scheduled jobs ##############
 
-# from scheduled.jobs import clientBirthdayNotificationsJob
+from scheduled.jobs import notificationsJob
+from scheduled.jobs import updateBillingDateJob
