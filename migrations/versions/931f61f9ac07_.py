@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 57f264970e55
+Revision ID: 931f61f9ac07
 Revises: 
-Create Date: 2022-05-29 23:13:04.456357
+Create Date: 2022-05-30 13:29:38.057093
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import mysql
 
 # revision identifiers, used by Alembic.
-revision = '57f264970e55'
+revision = '931f61f9ac07'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -102,6 +102,7 @@ def upgrade():
     sa.Column('billing_cycle', mysql.INTEGER(unsigned=True), nullable=False),
     sa.Column('remind', sa.Boolean(), nullable=False),
     sa.Column('is_continuous', sa.Boolean(), nullable=False),
+    sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('background', sa.Enum('#FFF001', '#FEC10E', '#F7921E', '#EF6421', '#EB1C24', '#932490', '#000000', '#642C91', '#0070BA', '#01ABEF', '#01A99C', '#01A451', '#8BC53D', '#C4C4C4'), nullable=False),
