@@ -1,4 +1,4 @@
-# images-app-backend
+# Aplicativo de gerenciamento de inscrições mensais: Backend
 
 ## Requirements
 
