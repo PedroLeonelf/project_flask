@@ -38,6 +38,7 @@ class Notification(db.Model):
     @property
     def serialize(self):
         return {
+            'id': self.id,
             'client_id': self.client_id,
             'title': self.title,
             'description': self.description,

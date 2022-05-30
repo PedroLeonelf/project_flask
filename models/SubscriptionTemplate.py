@@ -45,6 +45,7 @@ class SubscriptionTemplate(db.Model):
     @property
     def serialize(self):
         return {
+            'id': self.id,
             'admin_id': self.admin_id,
             'name': self.name,
             'background': self.background,
