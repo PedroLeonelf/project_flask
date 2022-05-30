@@ -50,7 +50,6 @@ class SubscriptionController:
            
             return make_response({'message': e}), 500
             
-        print(requestData)
         subscription_data = json.loads(requestData['data'])
         if subscription_data:
             subscription_data = {k: v for k, v in subscription_data.items() if v != ""}
@@ -68,7 +67,6 @@ class SubscriptionController:
             icon = request.files.get('image')
             if icon:
                 SubscriptionHelper.updateIcon(icon, subscription)
-            print(subscription)
             return subscription.serialize
         except Exception as e:
             print(e)
