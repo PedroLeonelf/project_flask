@@ -30,6 +30,8 @@ class Subscription(db.Model):
 
     is_continuous = db.Column(db.Boolean, nullable=False)
 
+    is_active = db.Column(db.Boolean, nullable=False)
+
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),
@@ -49,6 +51,7 @@ class Subscription(db.Model):
                          'health_and_wellbeing', 'productivity', 'banking', 'transport', 'education', 'insurance'), nullable=False)
 
     def __init__(self, data=None):
+        self.is_active=True
         if data:
             keys = list(data.keys())
             values = list(data.values())
@@ -67,6 +70,7 @@ class Subscription(db.Model):
             'billing_cycle': self.billing_cycle,
             'remind': self.remind,
             'is_continuous': self.is_continuous,
+            'is_active': self.is_active,
             'background': self.background,
             'category': self.category,
             'created_at': self.created_at.strftime("%Y-%m-%d %H:%M:%S"),

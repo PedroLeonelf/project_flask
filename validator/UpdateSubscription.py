@@ -47,6 +47,11 @@ def validate_UpdateSubscription(data):
             'required': True,
             'empty': False
         },
+        'is_active': {
+            'type': 'boolean',
+            'required': True,
+            'empty': False
+        },
         'background': {
             'type': 'string',
             'required': True,
