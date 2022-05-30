@@ -23,6 +23,16 @@ class Client(db.Model):
                            server_default=db.func.now(),
                            onupdate=db.func.now())
 
+    subscriptions = db.relationship('Subscription',
+                                    backref=db.backref(
+                                        'client', lazy='joined'),
+                                    lazy='select')
+
+    notifications = db.relationship('Notification',
+                                    backref=db.backref(
+                                        'client', lazy='joined'),
+                                    lazy='select')
+
     def __init__(self, data=None):
         if data:
             keys = list(data.keys())

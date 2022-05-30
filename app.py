@@ -29,6 +29,9 @@ crontab.init_app(app)
 
 app.before_request_funcs = {
     'admin_admin_bp': [User.verify_token, User.verify_role],
+    'admin_subscriptiontemplate_bp': [User.verify_token, User.verify_role],
+    'client_subscription_bp': [User.verify_token, User.verify_role],
+    'client_notification_bp': [User.verify_token, User.verify_role],
     'client_client_bp': [User.verify_token, User.verify_role],
 }
 
@@ -39,9 +42,15 @@ app.register_blueprint(session_bp, url_prefix='/sessions')
 
 # Admin routes
 app.register_blueprint(admin_admin_bp, url_prefix='/admin/admins')
+app.register_blueprint(admin_subscriptiontemplate_bp,
+                       url_prefix='/admin/subscription-templates')
 
 # Client User routes
 app.register_blueprint(client_client_bp, url_prefix='/clients')
+app.register_blueprint(client_subscription_bp,
+                       url_prefix='/client/subscriptions')
+app.register_blueprint(client_notification_bp,
+                       url_prefix='/client/notifications')                       
 
 
 @app.route('/')
