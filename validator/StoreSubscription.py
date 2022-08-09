@@ -19,43 +19,32 @@ def validate_StoreSubscription(data):
         },
         'description': {
             'type': 'string',
-            'required': True,
-            'empty': False
         },
         'price': {
             'type': 'number',
             'required': True,
-            'empty': False
         },
         'next_bill': {
             'type': 'string',
-            'required': True,
-            'empty': False
         },
         'billing_cycle': {
             'type': 'integer',
-            'required': True,
-            'empty': False
         },
         'remind': {
             'type': 'boolean',
-            'required': True,
-            'empty': False
         },
         'is_continuous': {
             'type': 'boolean',
-            'required': True,
-            'empty': False
+        },
+        'is_active': {
+            'type': 'boolean',
         },
         'background': {
             'type': 'string',
-            'required': True,
-            'empty': False
         },
         'category': {
             'type': 'string',
             'required': True,
-            'empty': False
         }
     }
     v = Validator(schema,

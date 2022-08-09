@@ -10,6 +10,8 @@ client_subscription_bp.route('', methods=['GET'])(
 client_subscription_bp.route('', methods=['POST'])(
     SubscriptionController.store)
 client_subscription_bp.route('/<int:id>',
-                                    methods=['PUT'])(SubscriptionController.update)
+                             methods=['PUT'])(SubscriptionController.update)
+client_subscription_bp.route('/<int:id>',
+                             methods=['DELETE'])(SubscriptionController.destroy)
 client_subscription_bp.route(
     '/<int:id>', methods=['GET'])(SubscriptionController.show)

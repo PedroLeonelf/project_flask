@@ -43,7 +43,7 @@ class Client(db.Model):
     @property
     def serialize(self):
         return {
-            'id': self.id,
+            'user_id': self.user_id,
             'name': self.name,
             'created_at': self.created_at.strftime("%Y-%m-%d %H:%M:%S"),
             'updated_at': self.updated_at.strftime("%Y-%m-%d %H:%M:%S"),

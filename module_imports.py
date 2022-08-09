@@ -5,7 +5,6 @@ from models.Role import Role
 from models.RoleUser import RoleUser
 from models.Admin import Admin
 from models.Client import Client
-from models.SubscriptionIcon import SubscriptionIcon
 from models.Subscription import Subscription
 from models.SubscriptionTemplate import SubscriptionTemplate
 from models.Notification import Notification
@@ -25,6 +24,7 @@ from routes.client_client_bp import client_client_bp
 from routes.admin_subscriptiontemplate_bp import admin_subscriptiontemplate_bp
 from routes.client_subscription_bp import client_subscription_bp
 from routes.client_notification_bp import client_notification_bp
+from routes.client_bp import client_bp
 
 ############### Scheduled jobs ##############
 

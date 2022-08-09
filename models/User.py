@@ -18,8 +18,6 @@ class User(db.Model):
     email = db.Column(db.String(320), nullable=False, unique=True)
     password = db.Column(db.String(200), nullable=False)
 
-    remember_me_token = db.Column(db.String(80))
-    remember_me_token_created_at = db.Column(db.DateTime)
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),

@@ -6,14 +6,15 @@ from config import db
 
 class Subscription(db.Model):
     __tablename__ = 'subscriptions'
-    id = db.Column(INTEGER(unsigned=True), primary_key=True, nullable=False, autoincrement=True)
+    id = db.Column(INTEGER(unsigned=True), primary_key=True,
+                   nullable=False, autoincrement=True)
     client_id = db.Column(INTEGER(unsigned=True),
-                        db.ForeignKey('clients.user_id',
-                                      ondelete='CASCADE',
-                                      onupdate='CASCADE'),
-                        nullable=False,
-                        index=True,
-                        primary_key=True)
+                          db.ForeignKey('clients.user_id',
+                                        ondelete='CASCADE',
+                                        onupdate='CASCADE'),
+                          nullable=False,
+                          index=True,
+                          primary_key=True)
 
     name = db.Column(db.String(150), nullable=False)
 
@@ -22,11 +23,11 @@ class Subscription(db.Model):
     price = db.Column(DECIMAL(10, 2), nullable=False)
 
     next_bill = db.Column(db.DateTime(timezone=True),
-                          server_default=func.now(), nullable=False)
+                          server_default=func.now())
 
-    billing_cycle = db.Column(INTEGER(unsigned=True), nullable=False)
+    billing_cycle = db.Column(INTEGER(unsigned=True))
 
-    remind = db.Column(db.Boolean, nullable=False)
+    remind = db.Column(db.Boolean)
 
     is_continuous = db.Column(db.Boolean, nullable=False)
 
@@ -38,20 +39,15 @@ class Subscription(db.Model):
                            server_default=db.func.now(),
                            onupdate=db.func.now())
 
-    icon = db.relationship('SubscriptionIcon',
-                           uselist=False,
-                           lazy='select',
-                           backref=db.backref('subscription', lazy='joined'))
-
     background = db.Column(db.Enum('#FFF001', '#FEC10E', '#F7921E', '#EF6421', '#EB1C24',
                                    '#932490', '#000000', '#642C91', '#0070BA', '#01ABEF',
-                                   '#01A99C', '#01A451', '#8BC53D', '#C4C4C4'), nullable=False)
+                                   '#01A99C', '#01A451', '#8BC53D', '#C4C4C4'))
 
     category = db.Column(db.Enum('music', 'entertainment', 'utilities', 'food_and_beverages',
                          'health_and_wellbeing', 'productivity', 'banking', 'transport', 'education', 'insurance'), nullable=False)
 
     def __init__(self, data=None):
-        self.is_active=True
+        self.is_active = True
         if data:
             keys = list(data.keys())
             values = list(data.values())

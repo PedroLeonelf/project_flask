@@ -16,7 +16,7 @@ class ClientController:
         if data.get('validation'):
             return {
                 'name':
-                client.brand_name,
+                client.name,
             }
         elif data.get('filterData'):
             return {'created_at': str(client.created_at)}

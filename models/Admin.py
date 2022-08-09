@@ -23,9 +23,9 @@ class Admin(db.Model):
                            onupdate=db.func.now())
 
     subscription_templates = db.relationship('SubscriptionTemplate',
-                           uselist=False,
-                           lazy='select',
-                           backref=db.backref('admin', lazy='joined'))
+                                             uselist=False,
+                                             lazy='select',
+                                             backref=db.backref('admin', lazy='joined'))
 
     def __init__(self, user_id, name):
         self.user_id = user_id

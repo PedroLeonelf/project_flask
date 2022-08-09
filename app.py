@@ -40,6 +40,7 @@ app.before_request_funcs = {
 
 # General Routes
 app.register_blueprint(session_bp, url_prefix='/sessions')
+app.register_blueprint(client_bp, url_prefix='/clients')
 
 # Admin routes
 app.register_blueprint(admin_admin_bp, url_prefix='/admin/admins')
@@ -47,11 +48,11 @@ app.register_blueprint(admin_subscriptiontemplate_bp,
                        url_prefix='/admin/subscription-templates')
 
 # Client User routes
-app.register_blueprint(client_client_bp, url_prefix='/clients')
+app.register_blueprint(client_client_bp, url_prefix='/client/clients')
 app.register_blueprint(client_subscription_bp,
                        url_prefix='/client/subscriptions')
 app.register_blueprint(client_notification_bp,
-                       url_prefix='/client/notifications')                       
+                       url_prefix='/client/notifications')
 
 
 @app.route('/')
