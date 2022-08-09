@@ -1,3 +1,5 @@
+# Integrantes: Tiago Ribeiro Chagas e Pedro Leonel Teixeira
+
 # Aplicativo de gerenciamento de inscrições mensais: Backend
 
 ## Requirements
